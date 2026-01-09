@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задача 1 - Список товаров</title>
+</head>
+<body>
+    <h1>Список товаров</h1>
+    <ul class="products">
+        <!-- Список товаров будет сгенерирован здесь -->
+    </ul>
+    
+    <script>
+        // Исходный массив с товарами
+        const products = ["Мышка", "Клавиатура", "Наушники"];
+        
+        // Новые товары, которые нужно добавить
+        const newProducts = ["Монитор", "Принтер", "Флешка"];
+        
+        // Добавляем новые товары в массив с помощью цикла
+        for (let i = 0; i < newProducts.length; i++) {
+            products.push(newProducts[i]);
+        }
+        
+        // Находим элемент ul с классом products
+        const productsList = document.querySelector('.products');
+        
+        // Создаем элементы списка для каждого товара с помощью цикла
+        for (let i = 0; i < products.length; i++) {
+            const listItem = document.createElement('li');
+            listItem.textContent = products[i];
+            productsList.append(listItem);
+        }
+    </script>
+</body>
+</html>

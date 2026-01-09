@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конструктор банковской карты</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        input {
+            padding: 8px;
+            font-size: 16px;
+            width: 100%;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+        input:focus {
+            border-color: #007bff;
+            background-color: #f0f8ff;
+            outline: none;
+        }
+        select {
+            padding: 8px;
+            font-size: 16px;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        #card {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            padding: 20px;
+            font-size: 24px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Конструктор банковской карты</h1>
+    
+    <input type="text" id="cardText" placeholder="Введите текст для карты">
+    
+    <select id="colorSelect">
+        <option value="red">Красный</option>
+        <option value="blue">Синий</option>
+        <option value="green">Зеленый</option>
+    </select>
+    
+    <p id="card"></p>
+    
+    <script>
+        const cardText = document.getElementById('cardText');
+        const colorSelect = document.getElementById('colorSelect');
+        const card = document.getElementById('card');
+        
+        // Обновление текста карты при вводе
+        cardText.addEventListener('input', function() {
+            card.textContent = this.value;
+        });
+        
+        // Изменение стиля при фокусе
+        cardText.addEventListener('focus', function() {
+            this.style.borderColor = '#007bff';
+            this.style.backgroundColor = '#f0f8ff';
+        });
+        
+        // Возврат стиля при потере фокуса
+        cardText.addEventListener('blur', function() {
+            this.style.borderColor = '';
+            this.style.backgroundColor = '';
+        });
+        
+        // Изменение цвета карты при выборе
+        colorSelect.addEventListener('change', function() {
+            card.style.backgroundColor = this.value;
+        });
+    </script>
+</body>
+</html>

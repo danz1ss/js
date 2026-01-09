@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задача 2 - Поиск минимального и максимального числа</title>
+</head>
+<body>
+    <h1>Поиск минимального и максимального числа</h1>
+    <p class="all-elements"></p>
+    <button class="min">Найти минимальное число</button>
+    <button class="max">Найти максимальное число</button>
+    <p>Минимальное число: <span class="minNumber"></span></p>
+    <p>Максимальное число: <span class="maxNumber"></span></p>
+    
+    <script>
+        // Массив чисел
+        const numbers = [12, 5, 8, 20, 3, 16];
+        
+        // Выводим все элементы массива через запятую
+        const allElementsP = document.querySelector('.all-elements');
+        let allElementsText = '';
+        for (let i = 0; i < numbers.length; i++) {
+            if (i === numbers.length - 1) {
+                allElementsText += numbers[i];
+            } else {
+                allElementsText += numbers[i] + ', ';
+            }
+        }
+        allElementsP.textContent = allElementsText;
+        
+        // Функция поиска минимального числа
+        function findMin() {
+            let min = numbers[0];
+            for (let i = 1; i < numbers.length; i++) {
+                if (numbers[i] < min) {
+                    min = numbers[i];
+                }
+            }
+            return min;
+        }
+        
+        // Функция поиска максимального числа
+        function findMax() {
+            let max = numbers[0];
+            for (let i = 1; i < numbers.length; i++) {
+                if (numbers[i] > max) {
+                    max = numbers[i];
+                }
+            }
+            return max;
+        }
+        
+        // Обработчик клика на кнопку "Найти минимальное число"
+        const minButton = document.querySelector('.min');
+        minButton.addEventListener('click', function() {
+            const minNumber = findMin();
+            const minSpan = document.querySelector('.minNumber');
+            minSpan.textContent = minNumber;
+        });
+        
+        // Обработчик клика на кнопку "Найти максимальное число"
+        const maxButton = document.querySelector('.max');
+        maxButton.addEventListener('click', function() {
+            const maxNumber = findMax();
+            const maxSpan = document.querySelector('.maxNumber');
+            maxSpan.textContent = maxNumber;
+        });
+    </script>
+</body>
+</html>
